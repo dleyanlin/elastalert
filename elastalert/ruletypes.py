@@ -106,7 +106,8 @@ class BlacklistRule(CompareRule):
     def compare(self, event):
         term = lookup_es_key(event, self.rules['compare_key'])
         #add for debug
-        elastalert_logger.info('the term value is:' term)
+        elastalert_logger.info('the term value is: %s' % (term))
+        elastalert_logger.info('the Black list is: %s' % (blacklist))
         if term in self.rules['blacklist']:
             return True
         return False
